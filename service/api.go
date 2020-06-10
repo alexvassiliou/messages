@@ -8,12 +8,18 @@ import (
 )
 
 //Server is the message server it holds a collection of messages
-type Server struct {
+type server struct {
 	db []Message
 }
 
-//Create a message
-func (s *Server) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
+// NewServer instantiates a message server
+func NewServer(db []Message) MessageServiceServer {
+	return &server{
+		db: db,
+	}
+}
+
+func (s *server) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
 	// Create the id for the new message
 	id, err := uuid.NewUUID()
 	if err != nil {
