@@ -19,7 +19,16 @@ message CreateResponse {
     string Id = 1;
 }
 
+message ReadRequest {
+    string Id = 1;
+}
+
+message ReadResponse {
+    Message Message = 1;
+}
+
 service MessageService {
     rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Read(ReadRequest) returns (ReadResponse);
 }
 

@@ -46,3 +46,17 @@ func (s *server) Create(ctx context.Context, req *CreateRequest) (*CreateRespons
 		Id: m.Id,
 	}, nil
 }
+
+func (s *server) Read(ctx context.Context, req *ReadRequest) (*ReadResponse, error) {
+	var result Message
+
+	for _, message := range s.db {
+		if message.Id == req.Id {
+			result = message
+		}
+	}
+
+	return &ReadResponse{
+		Message: &result,
+	}, nil
+}

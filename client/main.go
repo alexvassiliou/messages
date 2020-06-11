@@ -13,7 +13,8 @@ import (
 func main() {
 	// create a message using flags
 	title := flag.String("title", "defaultTitle", "the title of your note")
-	body := flag.String("body", "this is a default mesage", "the note you wish to save")
+	content := flag.String("body", "this is a default mesage", "the note you wish to save")
+
 	flag.Parse()
 
 	// Setup connection to the server, no credentials needed
@@ -33,7 +34,7 @@ func main() {
 	request := api.CreateRequest{
 		Message: &api.Message{
 			Title:   *title,
-			Content: *body,
+			Content: *content,
 		},
 	}
 
