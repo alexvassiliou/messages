@@ -12,7 +12,6 @@ import (
 
 func main() {
 	// create a message using flags
-	title := flag.String("title", "defaultTitle", "the title of your note")
 	content := flag.String("body", "this is a default mesage", "the note you wish to save")
 
 	flag.Parse()
@@ -33,7 +32,6 @@ func main() {
 	// build request from the flags
 	request := api.CreateRequest{
 		Message: &api.Message{
-			Title:   *title,
 			Content: *content,
 		},
 	}

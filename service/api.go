@@ -29,7 +29,6 @@ func (s *server) Create(ctx context.Context, req *CreateRequest) (*CreateRespons
 	// Create the message from the request
 	m := Message{
 		Id:      id.String(),
-		Title:   req.Message.Title,
 		Content: req.Message.Content,
 		Time:    req.Message.Time,
 	}
