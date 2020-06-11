@@ -21,6 +21,7 @@ func main() {
 	var db []api.Message
 	s := api.NewServer(db)
 
+	// Launch ther gRPC server
 	log.Fatal(runServer(ctx, port, s))
 
 }
@@ -37,9 +38,9 @@ func runServer(ctx context.Context, port string, s api.MessageServiceServer) err
 	// Register the message server passed through to the grpc server
 	api.RegisterMessageServiceServer(server, s)
 
-	// create channel to use to asynchronously shut down the server
+	// create channel to use to shut down the server when the app is interrupted
 	c := make(chan os.Signal, 1)
-	// signal the channel when the specified signal is recieved
+	// signal the channel when the specified interruption is recieved
 	signal.Notify(c, os.Interrupt)
 	// go routine ranges over the channel and shuts down the server when the signal is received
 	go func() {
