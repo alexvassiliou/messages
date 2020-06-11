@@ -234,35 +234,170 @@ func (m *ReadResponse) GetMessage() *Message {
 	return nil
 }
 
+type User struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *User) Reset()         { *m = User{} }
+func (m *User) String() string { return proto.CompactTextString(m) }
+func (*User) ProtoMessage()    {}
+func (*User) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{5}
+}
+
+func (m *User) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_User.Unmarshal(m, b)
+}
+func (m *User) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_User.Marshal(b, m, deterministic)
+}
+func (m *User) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_User.Merge(m, src)
+}
+func (m *User) XXX_Size() int {
+	return xxx_messageInfo_User.Size(m)
+}
+func (m *User) XXX_DiscardUnknown() {
+	xxx_messageInfo_User.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_User proto.InternalMessageInfo
+
+func (m *User) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *User) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+type Connect struct {
+	User                 *User    `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+	Active               bool     `protobuf:"varint,2,opt,name=active,proto3" json:"active,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Connect) Reset()         { *m = Connect{} }
+func (m *Connect) String() string { return proto.CompactTextString(m) }
+func (*Connect) ProtoMessage()    {}
+func (*Connect) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{6}
+}
+
+func (m *Connect) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Connect.Unmarshal(m, b)
+}
+func (m *Connect) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Connect.Marshal(b, m, deterministic)
+}
+func (m *Connect) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Connect.Merge(m, src)
+}
+func (m *Connect) XXX_Size() int {
+	return xxx_messageInfo_Connect.Size(m)
+}
+func (m *Connect) XXX_DiscardUnknown() {
+	xxx_messageInfo_Connect.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Connect proto.InternalMessageInfo
+
+func (m *Connect) GetUser() *User {
+	if m != nil {
+		return m.User
+	}
+	return nil
+}
+
+func (m *Connect) GetActive() bool {
+	if m != nil {
+		return m.Active
+	}
+	return false
+}
+
+type Close struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Close) Reset()         { *m = Close{} }
+func (m *Close) String() string { return proto.CompactTextString(m) }
+func (*Close) ProtoMessage()    {}
+func (*Close) Descriptor() ([]byte, []int) {
+	return fileDescriptor_a0b84a42fa06f626, []int{7}
+}
+
+func (m *Close) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Close.Unmarshal(m, b)
+}
+func (m *Close) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Close.Marshal(b, m, deterministic)
+}
+func (m *Close) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Close.Merge(m, src)
+}
+func (m *Close) XXX_Size() int {
+	return xxx_messageInfo_Close.Size(m)
+}
+func (m *Close) XXX_DiscardUnknown() {
+	xxx_messageInfo_Close.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Close proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*Message)(nil), "api.Message")
 	proto.RegisterType((*CreateRequest)(nil), "api.CreateRequest")
 	proto.RegisterType((*CreateResponse)(nil), "api.CreateResponse")
 	proto.RegisterType((*ReadRequest)(nil), "api.ReadRequest")
 	proto.RegisterType((*ReadResponse)(nil), "api.ReadResponse")
+	proto.RegisterType((*User)(nil), "api.User")
+	proto.RegisterType((*Connect)(nil), "api.Connect")
+	proto.RegisterType((*Close)(nil), "api.Close")
 }
 
 func init() { proto.RegisterFile("service.proto", fileDescriptor_a0b84a42fa06f626) }
 
 var fileDescriptor_a0b84a42fa06f626 = []byte{
-	// 262 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x90, 0x51, 0x4b, 0xc3, 0x30,
-	0x14, 0x85, 0x59, 0x5b, 0x36, 0xbd, 0xdd, 0xca, 0xbc, 0xbe, 0x94, 0x82, 0x58, 0xfa, 0x20, 0x03,
-	0x21, 0xc3, 0x0a, 0xfa, 0x03, 0xf6, 0x34, 0xc1, 0x97, 0xb8, 0x3f, 0x90, 0xd9, 0x6b, 0x09, 0xd8,
-	0x26, 0x36, 0x99, 0xbf, 0x5f, 0x4c, 0x1a, 0xd9, 0xf4, 0xc5, 0xb7, 0xe4, 0x9c, 0x7b, 0xf2, 0x9d,
-	0x5c, 0x58, 0x18, 0x1a, 0x3e, 0xe5, 0x2b, 0x31, 0x3d, 0x28, 0xab, 0x30, 0x16, 0x5a, 0x16, 0xd7,
-	0xad, 0x52, 0xed, 0x3b, 0xad, 0x9d, 0xb4, 0x3f, 0xbc, 0xad, 0xad, 0xec, 0xc8, 0x58, 0xd1, 0x69,
-	0x3f, 0x55, 0x49, 0x98, 0x3d, 0x93, 0x31, 0xa2, 0x25, 0xcc, 0x20, 0xda, 0x36, 0xf9, 0xa4, 0x9c,
-	0xac, 0xce, 0x79, 0xb4, 0x6d, 0x30, 0x87, 0xd9, 0x46, 0xf5, 0x96, 0x7a, 0x9b, 0xc7, 0x4e, 0x0c,
-	0x57, 0x64, 0x90, 0xec, 0x64, 0x47, 0x79, 0x52, 0x4e, 0x56, 0x69, 0x5d, 0x30, 0x0f, 0x61, 0x01,
-	0xc2, 0x76, 0x01, 0xc2, 0xdd, 0xdc, 0x53, 0x72, 0x16, 0x2d, 0xe3, 0xea, 0x11, 0x16, 0x9b, 0x81,
-	0x84, 0x25, 0x4e, 0x1f, 0x07, 0x32, 0x16, 0x6f, 0x7e, 0xd8, 0x8e, 0x9a, 0xd6, 0x73, 0x26, 0xb4,
-	0x64, 0xa3, 0xc6, 0x83, 0x59, 0x95, 0x90, 0x85, 0xa0, 0xd1, 0xaa, 0x37, 0x7f, 0xaa, 0x56, 0x57,
-	0x90, 0x72, 0x12, 0x4d, 0x78, 0xf8, 0xb7, 0xfd, 0x00, 0x73, 0x6f, 0x8f, 0xf1, 0x7f, 0x82, 0x6b,
-	0x0d, 0xd9, 0x78, 0x7c, 0xf1, 0xab, 0xc5, 0x3b, 0x98, 0xfa, 0x2a, 0x88, 0x2e, 0x72, 0xf2, 0xa1,
-	0xe2, 0xf2, 0x44, 0x1b, 0x61, 0xb7, 0x90, 0x7c, 0xc3, 0x71, 0xe9, 0xcc, 0xa3, 0x9a, 0xc5, 0xc5,
-	0x91, 0xe2, 0x87, 0xf7, 0x53, 0xb7, 0xc3, 0xfb, 0xaf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x74, 0x1b,
-	0x3e, 0xb7, 0xcc, 0x01, 0x00, 0x00,
+	// 374 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0x4d, 0x6f, 0x9b, 0x40,
+	0x14, 0x14, 0x98, 0xfa, 0xe3, 0xf9, 0x43, 0xee, 0xab, 0xd4, 0x22, 0x24, 0xab, 0x16, 0x87, 0xca,
+	0x6a, 0x2d, 0xdc, 0x52, 0x29, 0xb9, 0x46, 0xf1, 0xc9, 0x91, 0x72, 0xc1, 0xce, 0x0f, 0x58, 0xc3,
+	0x0b, 0x5a, 0xc9, 0xb0, 0x84, 0x5d, 0xfc, 0xfb, 0x23, 0x76, 0xc1, 0x32, 0xce, 0x25, 0x37, 0x76,
+	0xde, 0xbc, 0x99, 0x9d, 0x61, 0x61, 0x2a, 0xa9, 0x3c, 0xf3, 0x98, 0x82, 0xa2, 0x14, 0x4a, 0x60,
+	0x8f, 0x15, 0xdc, 0xfb, 0x99, 0x0a, 0x91, 0x9e, 0x68, 0xa3, 0xa1, 0x63, 0xf5, 0xba, 0x51, 0x3c,
+	0x23, 0xa9, 0x58, 0x56, 0x18, 0x96, 0xcf, 0x61, 0xf0, 0x4c, 0x52, 0xb2, 0x94, 0x70, 0x06, 0xf6,
+	0x2e, 0x71, 0xad, 0xa5, 0xb5, 0x1a, 0x45, 0xf6, 0x2e, 0x41, 0x17, 0x06, 0x5b, 0x91, 0x2b, 0xca,
+	0x95, 0xdb, 0xd3, 0x60, 0x7b, 0xc4, 0x00, 0x9c, 0x03, 0xcf, 0xc8, 0x75, 0x96, 0xd6, 0x6a, 0x1c,
+	0x7a, 0x81, 0x31, 0x09, 0x5a, 0x93, 0xe0, 0xd0, 0x9a, 0x44, 0x9a, 0xf7, 0xe4, 0x0c, 0xed, 0x79,
+	0xcf, 0xbf, 0x87, 0xe9, 0xb6, 0x24, 0xa6, 0x28, 0xa2, 0xb7, 0x8a, 0xa4, 0xc2, 0x5f, 0x17, 0x6f,
+	0xed, 0x3a, 0x0e, 0x27, 0x01, 0x2b, 0x78, 0xd0, 0x60, 0x51, 0x3b, 0xf4, 0x97, 0x30, 0x6b, 0x17,
+	0x65, 0x21, 0x72, 0xf9, 0xe1, 0xaa, 0xfe, 0x02, 0xc6, 0x11, 0xb1, 0xa4, 0x15, 0xbe, 0x1d, 0xdf,
+	0xc1, 0xc4, 0x8c, 0x9b, 0xf5, 0xcf, 0x1a, 0xff, 0x06, 0xe7, 0x45, 0x52, 0x59, 0xeb, 0xf1, 0x8b,
+	0x1e, 0x4f, 0x10, 0xc1, 0xc9, 0x59, 0x46, 0xae, 0xad, 0x11, 0xfd, 0xed, 0x3f, 0xe8, 0xb6, 0x72,
+	0x8a, 0x15, 0x2e, 0xc0, 0xa9, 0x24, 0x95, 0x8d, 0xf6, 0x48, 0x6b, 0xd7, 0x3a, 0x91, 0x86, 0xf1,
+	0x3b, 0xf4, 0x59, 0xac, 0xf8, 0xd9, 0xec, 0x0f, 0xa3, 0xe6, 0xe4, 0x0f, 0xe0, 0xcb, 0xf6, 0x24,
+	0x24, 0x85, 0x05, 0xcc, 0x9a, 0x1b, 0xec, 0xcd, 0x1f, 0xc5, 0x7f, 0xd0, 0x37, 0x0d, 0x20, 0x6a,
+	0xb5, 0x4e, 0x8f, 0xde, 0xb7, 0x0e, 0xd6, 0x64, 0xfc, 0x03, 0x4e, 0x9d, 0x19, 0xe7, 0x7a, 0x78,
+	0xd5, 0x8e, 0xf7, 0xf5, 0x0a, 0x31, 0xe4, 0xb0, 0x82, 0x1f, 0x7b, 0x55, 0x12, 0xcb, 0x78, 0x9e,
+	0xde, 0x58, 0xaf, 0x61, 0x62, 0x94, 0x0d, 0x01, 0x4d, 0x55, 0x4d, 0x54, 0xaf, 0x53, 0xdc, 0x5f,
+	0x0b, 0xd7, 0x30, 0x7f, 0x2c, 0x05, 0x4b, 0x62, 0x26, 0x55, 0xfb, 0xae, 0x3a, 0x1c, 0x0f, 0xcc,
+	0x7e, 0x1d, 0xf4, 0xd8, 0xd7, 0x2f, 0xe6, 0xff, 0x7b, 0x00, 0x00, 0x00, 0xff, 0xff, 0xb1, 0x9f,
+	0x12, 0x6d, 0xba, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -367,5 +502,130 @@ var _MessageService_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
+	Metadata: "service.proto",
+}
+
+// StreamingMessageServiceClient is the client API for StreamingMessageService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type StreamingMessageServiceClient interface {
+	CreateStream(ctx context.Context, in *Connect, opts ...grpc.CallOption) (StreamingMessageService_CreateStreamClient, error)
+	BroadcastMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Close, error)
+}
+
+type streamingMessageServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewStreamingMessageServiceClient(cc *grpc.ClientConn) StreamingMessageServiceClient {
+	return &streamingMessageServiceClient{cc}
+}
+
+func (c *streamingMessageServiceClient) CreateStream(ctx context.Context, in *Connect, opts ...grpc.CallOption) (StreamingMessageService_CreateStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_StreamingMessageService_serviceDesc.Streams[0], "/api.StreamingMessageService/CreateStream", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &streamingMessageServiceCreateStreamClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type StreamingMessageService_CreateStreamClient interface {
+	Recv() (*Message, error)
+	grpc.ClientStream
+}
+
+type streamingMessageServiceCreateStreamClient struct {
+	grpc.ClientStream
+}
+
+func (x *streamingMessageServiceCreateStreamClient) Recv() (*Message, error) {
+	m := new(Message)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *streamingMessageServiceClient) BroadcastMessage(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Close, error) {
+	out := new(Close)
+	err := c.cc.Invoke(ctx, "/api.StreamingMessageService/BroadcastMessage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StreamingMessageServiceServer is the server API for StreamingMessageService service.
+type StreamingMessageServiceServer interface {
+	CreateStream(*Connect, StreamingMessageService_CreateStreamServer) error
+	BroadcastMessage(context.Context, *Message) (*Close, error)
+}
+
+func RegisterStreamingMessageServiceServer(s *grpc.Server, srv StreamingMessageServiceServer) {
+	s.RegisterService(&_StreamingMessageService_serviceDesc, srv)
+}
+
+func _StreamingMessageService_CreateStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(Connect)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(StreamingMessageServiceServer).CreateStream(m, &streamingMessageServiceCreateStreamServer{stream})
+}
+
+type StreamingMessageService_CreateStreamServer interface {
+	Send(*Message) error
+	grpc.ServerStream
+}
+
+type streamingMessageServiceCreateStreamServer struct {
+	grpc.ServerStream
+}
+
+func (x *streamingMessageServiceCreateStreamServer) Send(m *Message) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _StreamingMessageService_BroadcastMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Message)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StreamingMessageServiceServer).BroadcastMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.StreamingMessageService/BroadcastMessage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StreamingMessageServiceServer).BroadcastMessage(ctx, req.(*Message))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _StreamingMessageService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "api.StreamingMessageService",
+	HandlerType: (*StreamingMessageServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "BroadcastMessage",
+			Handler:    _StreamingMessageService_BroadcastMessage_Handler,
+		},
+	},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "CreateStream",
+			Handler:       _StreamingMessageService_CreateStream_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "service.proto",
 }

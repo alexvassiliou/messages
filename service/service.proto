@@ -27,8 +27,24 @@ message ReadResponse {
     Message Message = 1;
 }
 
+message User {
+    string id = 1;
+    string name = 2;
+}
+
+message Connect {
+    User user = 1;
+    bool active = 2;
+}
+
+message Close {}
+
 service MessageService {
     rpc Create(CreateRequest) returns (CreateResponse);
     rpc Read(ReadRequest) returns (ReadResponse);
 }
 
+service StreamingMessageService {
+    rpc CreateStream(Connect) returns (stream Message);
+    rpc BroadcastMessage(Message) returns (Close);
+}

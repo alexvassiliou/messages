@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// create a message using flags
-	content := flag.String("body", "this is a default mesage", "the note you wish to save")
+	content := flag.String("content", "this is a default mesage", "the note you wish to save")
 
 	flag.Parse()
 
